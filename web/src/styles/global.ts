@@ -10,4 +10,10 @@ export const GlobalStyle = createGlobalStyle`
 body{
     background: ${(props) => props.theme["gray-100"]};
 }
+
+body, input, button{
+    font-family: 'Robot', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
 `;

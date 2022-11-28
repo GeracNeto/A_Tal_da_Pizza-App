@@ -12,5 +12,15 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+
+    text-decoration: none;
+
+    color: ${(props) => props.theme.black};
+  }
 `;
