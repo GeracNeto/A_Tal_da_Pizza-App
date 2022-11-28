@@ -63,5 +63,5 @@ export const CardMenuContainer = styled.div`
   flex-wrap: wrap;
 
   padding: 1rem;
-  gap: 2rem;
+  gap: 1rem 3rem;
 `;
