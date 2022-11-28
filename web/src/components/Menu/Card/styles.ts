@@ -15,8 +15,9 @@ export const CardContainer = styled.div`
   border-radius: 10px;
 
   img {
-    width: 100%;
-    border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   h2 {

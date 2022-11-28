@@ -10,8 +10,10 @@ export const ResumeCardContainer = styled.div`
   gap: 1rem;
 
   img {
-    width: 20%;
-    border: 10px;
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
   }
 
   h3 {

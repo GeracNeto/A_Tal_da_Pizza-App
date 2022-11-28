@@ -1,14 +1,17 @@
 import { CardContainer } from "./styles";
 
-export function Card() {
+interface foodProps {
+  foodName: string;
+  price: number;
+  foodPicture: string;
+}
+
+export function Card({ foodName, price, foodPicture }: foodProps) {
   return (
     <CardContainer>
-      <img
-        src="https://cdn.pixabay.com/photo/2017/02/15/10/57/pizza-2068272_960_720.jpg"
-        alt="pizza"
-      />
-      <h2>Pizza de 4 Queijos</h2>
-      <span>R$: 49.99</span>
+      <img src={foodPicture} alt={foodName} />
+      <h2>{foodName}</h2>
+      <span>R$: {price}</span>
     </CardContainer>
   );
 }
