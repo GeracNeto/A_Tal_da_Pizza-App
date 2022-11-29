@@ -14,6 +14,8 @@ export const CardContainer = styled.div`
   background: ${(props) => props.theme.white};
   border-radius: 10px;
 
+  cursor: pointer;
+
   img {
     max-width: 100%;
     height: auto;

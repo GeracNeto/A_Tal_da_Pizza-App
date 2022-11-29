@@ -1,7 +1,14 @@
 import { ResumeCard } from "./ResumeCard";
+
 import { ButtonSubmit, OrderContainer, ResumeContainer, Total } from "./styles";
 
-export function Order() {
+import { MenuProps } from "../../App";
+
+interface CartProps {
+  cart: MenuProps[];
+}
+
+export function Order({ cart }: CartProps) {
   return (
     <OrderContainer>
       <header>
@@ -9,8 +16,19 @@ export function Order() {
         <h2>#907653</h2>
       </header>
       <main>
-        <ResumeCard />
-        <ResumeCard />
+        {cart.length !== 0 ? (
+          cart.map((item) => (
+            <ResumeCard
+              key={item.id}
+              id={item.id}
+              foodName={item.foodName}
+              foodPicture={item.foodPicture}
+              price={item.price}
+            />
+          ))
+        ) : (
+          <h1>No items on list</h1>
+        )}
       </main>
       <ResumeContainer>
         <div>

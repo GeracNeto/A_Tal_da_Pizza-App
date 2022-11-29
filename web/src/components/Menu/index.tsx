@@ -6,28 +6,15 @@ import { Card } from "./Card";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
+import { MenuProps } from "../../App";
 
-export interface MenuProps {
-  id: string;
-  foodName: string;
-  price: number;
-  foodPicture: string;
+interface FoodProps {
+  menu: MenuProps[];
+  menuDataError: string;
+  onAddRequest: (id: string) => void;
 }
 
-export function Menu() {
-  const [menu, setMenu] = useState<MenuProps[]>([]);
-  const [menuDataError, setMenuDataError] = useState<string | null>(null);
-
-  useEffect(() => {
-    axios("http://localhost:3333/menu")
-      .then((response) => {
-        setMenu(response.data);
-      })
-      .catch((error) => {
-        setMenuDataError(error.message);
-      });
-  }, []);
-
+export function Menu({ menu, menuDataError, onAddRequest }: FoodProps) {
   return (
     <MenuContainer>
       <HeaderContainer>
@@ -46,9 +33,11 @@ export function Menu() {
           menu.map((item) => (
             <Card
               key={item.id}
+              id={item.id}
               foodName={item.foodName}
               price={item.price}
               foodPicture={item.foodPicture}
+              onAddRequestOnClick={onAddRequest}
             />
           ))
         )}
