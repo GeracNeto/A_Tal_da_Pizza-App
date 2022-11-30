@@ -6,8 +6,9 @@ export const ResumeCardContainer = styled.div`
   border-radius: 10px;
 
   display: flex;
+  align-items: flex-start;
   padding: 0.875rem;
-  gap: 1rem;
+  gap: 0.8rem;
 
   img {
     max-width: 40%;

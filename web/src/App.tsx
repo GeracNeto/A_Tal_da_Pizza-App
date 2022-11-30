@@ -40,6 +40,13 @@ function App() {
     setCart((item) => [...item, newItem]);
   }
 
+  function deleteRequestCart(id: string) {
+    const newCartUpdated: MenuProps[] = cart.filter((item) => item.id !== id);
+    console.log(newCartUpdated);
+
+    setCart(newCartUpdated);
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <AppContainer>
@@ -49,7 +56,7 @@ function App() {
           menuDataError={menuDataError}
           onAddRequest={addRequesttoCart}
         />
-        <Order cart={cart} />
+        <Order cart={cart} onDeleteRequestCart={deleteRequestCart} />
       </AppContainer>
 
       <GlobalStyle />
