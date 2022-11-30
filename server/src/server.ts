@@ -15,4 +15,18 @@ app.get("/menu", async (request, response) => {
   return response.json(menu);
 });
 
+app.get("/menu/:name", async (request, response) => {
+  const { name } = request.params;
+
+  const menu = await prisma.menu.findMany({
+    where: {
+      foodName: {
+        contains: name,
+      },
+    },
+  });
+
+  return response.json(menu);
+});
+
 app.listen(3333);

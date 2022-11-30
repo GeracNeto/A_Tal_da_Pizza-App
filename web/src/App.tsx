@@ -47,6 +47,16 @@ function App() {
     setCart(newCartUpdated);
   }
 
+  function serchItemInMenu(foodSearch: string) {
+    axios(`http://localhost:3333/menu/${foodSearch}`)
+      .then((response) => {
+        setMenu(response.data);
+      })
+      .catch((error) => {
+        setMenuDataError(error);
+      });
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <AppContainer>
@@ -55,6 +65,7 @@ function App() {
           menu={menu}
           menuDataError={menuDataError}
           onAddRequest={addRequesttoCart}
+          onSerchItemInMenu={serchItemInMenu}
         />
         <Order cart={cart} onDeleteRequestCart={deleteRequestCart} />
       </AppContainer>

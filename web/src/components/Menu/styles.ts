@@ -44,12 +44,6 @@ export const HeaderContainer = styled.header`
     }
   }
 
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
   span {
     color: ${(props) => props.theme["orange-500"]};
     font-weight: bold;
