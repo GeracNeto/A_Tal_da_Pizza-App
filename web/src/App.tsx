@@ -16,6 +16,7 @@ export interface MenuProps {
   foodName: string;
   price: number;
   foodPicture: string;
+  qty: number;
 }
 
 function App() {
@@ -37,7 +38,21 @@ function App() {
     const newItemArray: MenuProps[] = menu.filter((item) => item.id === id);
     const newItem: MenuProps = newItemArray[0];
 
-    setCart((item) => [...item, newItem]);
+    let isItemInTheList: boolean = false;
+
+    cart.forEach((element) => {
+      if (element.id === id) {
+        isItemInTheList = true;
+        alert("This item already is in your cart");
+      }
+    });
+
+    if (newItemArray.length !== 0 && isItemInTheList === false) {
+      setCart((item) => [...item, newItem]);
+    } else {
+      setCart((item) => [...item]);
+    }
+
   }
 
   function deleteRequestCart(id: string) {
