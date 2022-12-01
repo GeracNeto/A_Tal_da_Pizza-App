@@ -3,6 +3,7 @@ import { MoreAndMinus, ResumeCardContainer } from "./styles";
 import { Plus, Minus, X } from "phosphor-react";
 
 import { MenuProps } from "../../../App";
+import { useState } from "react";
 
 interface CartProps {
   id: string;
@@ -19,6 +20,7 @@ export function ResumeCard({
   foodPicture,
   onDeleteRequestCart,
 }: CartProps) {
+  const [sum, setSum] = useState(0);
   return (
     <ResumeCardContainer>
       <img src={foodPicture} alt={foodName} />
@@ -26,9 +28,9 @@ export function ResumeCard({
         <h3>{foodName}</h3>
         <span>{price}</span>
         <MoreAndMinus>
-          <Minus weight="bold" />
-          5
-          <Plus weight="bold" />
+          <Minus weight="bold" onClick={() => setSum(sum - 1)} />
+          {sum}
+          <Plus weight="bold" onClick={() => setSum(sum + 1)} />
         </MoreAndMinus>
       </div>
       <X
