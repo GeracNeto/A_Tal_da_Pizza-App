@@ -76,7 +76,7 @@ function App() {
       if (item.id === id && query === "add") {
         item.qty += 1;
         return [...cart];
-      } else if (item.id === id && query === "sub") {
+      } else if (item.id === id && query === "sub" && item.qty !== 0) {
         item.qty -= 1;
         return [...cart];
       } else {
@@ -86,8 +86,6 @@ function App() {
 
     setCart(newCart);
   }
-
-  console.log(cart);
 
   return (
     <ThemeProvider theme={defaultTheme}>
