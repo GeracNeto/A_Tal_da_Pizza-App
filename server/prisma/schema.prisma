@@ -15,4 +15,5 @@ model Menu {
   foodName    String
   price       Float
   foodPicture String
+  qty         Int    @default(0)
 }

@@ -7,9 +7,14 @@ import { MenuProps } from "../../App";
 interface CartProps {
   cart: MenuProps[];
   onDeleteRequestCart: (id: string) => void;
+  onHandleAddQty: (id: string, query: string) => void;
 }
 
-export function Order({ cart, onDeleteRequestCart }: CartProps) {
+export function Order({
+  cart,
+  onDeleteRequestCart,
+  onHandleAddQty,
+}: CartProps) {
   return (
     <OrderContainer>
       <header>
@@ -25,7 +30,9 @@ export function Order({ cart, onDeleteRequestCart }: CartProps) {
               foodName={item.foodName}
               foodPicture={item.foodPicture}
               price={item.price}
+              qty={item.qty}
               onDeleteRequestCart={onDeleteRequestCart}
+              onHandleAddQty={onHandleAddQty}
             />
           ))
         ) : (

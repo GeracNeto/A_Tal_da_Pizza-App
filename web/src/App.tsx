@@ -52,7 +52,6 @@ function App() {
     } else {
       setCart((item) => [...item]);
     }
-
   }
 
   function deleteRequestCart(id: string) {
@@ -72,6 +71,24 @@ function App() {
       });
   }
 
+  function handleAddQty(id: string, query: string) {
+    const newCart: MenuProps[] = cart.filter((item) => {
+      if (item.id === id && query === "add") {
+        item.qty += 1;
+        return [...cart];
+      } else if (item.id === id && query === "sub") {
+        item.qty -= 1;
+        return [...cart];
+      } else {
+        return [...cart];
+      }
+    });
+
+    setCart(newCart);
+  }
+
+  console.log(cart);
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <AppContainer>
@@ -82,7 +99,11 @@ function App() {
           onAddRequest={addRequesttoCart}
           onSerchItemInMenu={serchItemInMenu}
         />
-        <Order cart={cart} onDeleteRequestCart={deleteRequestCart} />
+        <Order
+          cart={cart}
+          onDeleteRequestCart={deleteRequestCart}
+          onHandleAddQty={handleAddQty}
+        />
       </AppContainer>
 
       <GlobalStyle />

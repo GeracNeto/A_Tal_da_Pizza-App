@@ -9,8 +9,10 @@ interface CartProps {
   id: string;
   foodName: string;
   price: number;
+  qty: number;
   foodPicture: string;
   onDeleteRequestCart: (id: string) => void;
+  onHandleAddQty: (id: string, query: string) => void;
 }
 
 export function ResumeCard({
@@ -18,9 +20,12 @@ export function ResumeCard({
   foodName,
   price,
   foodPicture,
+  qty,
   onDeleteRequestCart,
+  onHandleAddQty,
 }: CartProps) {
   const [sum, setSum] = useState(0);
+
   return (
     <ResumeCardContainer>
       <img src={foodPicture} alt={foodName} />
@@ -28,9 +33,9 @@ export function ResumeCard({
         <h3>{foodName}</h3>
         <span>{price}</span>
         <MoreAndMinus>
-          <Minus weight="bold" onClick={() => setSum(sum - 1)} />
-          {sum}
-          <Plus weight="bold" onClick={() => setSum(sum + 1)} />
+          <Minus weight="bold" onClick={() => onHandleAddQty(id, "sub")} />
+          {qty}
+          <Plus weight="bold" onClick={() => onHandleAddQty(id, "add")} />
         </MoreAndMinus>
       </div>
       <X
