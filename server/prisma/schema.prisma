@@ -22,6 +22,7 @@ model Kitchen {
   id          String @id @default(uuid())
   foodName    String
   foodPicture String
-  qty         Int
-  order       String
+  price       Float
+  qty   Int
+  order String
 }

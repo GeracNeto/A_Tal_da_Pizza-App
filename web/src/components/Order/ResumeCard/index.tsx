@@ -24,8 +24,6 @@ export function ResumeCard({
   onDeleteRequestCart,
   onHandleAddQty,
 }: CartProps) {
-  const [sum, setSum] = useState(0);
-
   return (
     <ResumeCardContainer>
       <img src={foodPicture} alt={foodName} />

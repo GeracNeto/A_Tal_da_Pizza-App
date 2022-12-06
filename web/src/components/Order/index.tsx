@@ -4,6 +4,10 @@ import { ButtonSubmit, OrderContainer, ResumeContainer, Total } from "./styles";
 
 import { MenuProps } from "../../App";
 
+import axios from "axios";
+
+import { useState } from "react";
+
 interface CartProps {
   cart: MenuProps[];
   onDeleteRequestCart: (id: string) => void;
@@ -15,6 +19,8 @@ export function Order({
   onDeleteRequestCart,
   onHandleAddQty,
 }: CartProps) {
+  const [order, setOrder] = useState("");
+
   const sum = cart.reduce(
     (accumulator, currentValue) =>
       accumulator + currentValue.qty * currentValue.price,
@@ -25,11 +31,22 @@ export function Order({
 
   const total = tax + sum;
 
+  function handleSubmitOrder() {
+    axios
+      .post("http://localhost:3333/order", {
+        cart,
+      })
+      .then((response) => {
+        setOrder(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
     <OrderContainer>
       <header>
         <span>Current Orders</span>
-        <h2>#907653</h2>
+        <h2># {order}</h2>
       </header>
       <main>
         {cart.length !== 0 ? (
@@ -62,7 +79,9 @@ export function Order({
           <span>Total</span>
           <Total>R$ {total.toFixed(2)}</Total>
         </div>
-        <ButtonSubmit type="submit">Submit</ButtonSubmit>
+        <ButtonSubmit type="submit" onClick={handleSubmitOrder}>
+          Submit
+        </ButtonSubmit>
       </ResumeContainer>
     </OrderContainer>
   );

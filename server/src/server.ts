@@ -9,6 +9,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+interface MenuProps {
+  id: string;
+  foodName: string;
+  foodPicture: string;
+  price: number;
+  qty: number;
+}
+
 const prisma = new PrismaClient();
 
 app.get("/menu", async (request, response) => {
@@ -32,19 +40,24 @@ app.get("/menu/:name", async (request, response) => {
 });
 
 app.post("/order", async (request, response) => {
-  const { foodName, foodPicture, qty } = request.body;
+  const { cart } = request.body;
+
+  console.log(request.body);
 
   const generate = new ShortUniqueId({ length: 6 });
   const code = String(generate()).toUpperCase();
 
   try {
-    await prisma.kitchen.create({
-      data: {
-        foodName,
-        foodPicture,
-        qty,
-        order: code,
-      },
+    cart.forEach(async (element: MenuProps) => {
+      await prisma.kitchen.create({
+        data: {
+          foodName: element.foodName,
+          foodPicture: element.foodPicture,
+          price: element.price,
+          qty: element.qty,
+          order: code,
+        },
+      });
     });
   } catch (error) {
     console.log(`Error:` + error);
