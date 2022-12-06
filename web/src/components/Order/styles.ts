@@ -29,7 +29,7 @@ export const OrderContainer = styled.aside`
   }
 `;
 
-export const ResumeContainer = styled.footer`
+export const ResumeContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;

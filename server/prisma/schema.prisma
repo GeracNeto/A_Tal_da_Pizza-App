@@ -17,3 +17,11 @@ model Menu {
   foodPicture String
   qty         Int    @default(0)
 }
+
+model Kitchen {
+  id          String @id @default(uuid())
+  foodName    String
+  foodPicture String
+  qty         Int
+  order       String
+}

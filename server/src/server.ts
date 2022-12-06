@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 
+import ShortUniqueId from "short-unique-id";
+
 import { PrismaClient } from "@prisma/client";
 
 const app = express();
@@ -27,6 +29,28 @@ app.get("/menu/:name", async (request, response) => {
   });
 
   return response.json(menu);
+});
+
+app.post("/order", async (request, response) => {
+  const { foodName, foodPicture, qty } = request.body;
+
+  const generate = new ShortUniqueId({ length: 6 });
+  const code = String(generate()).toUpperCase();
+
+  try {
+    await prisma.kitchen.create({
+      data: {
+        foodName,
+        foodPicture,
+        qty,
+        order: code,
+      },
+    });
+  } catch (error) {
+    console.log(`Error:` + error);
+  }
+
+  return response.status(201).send({ code });
 });
 
 app.listen(3333);

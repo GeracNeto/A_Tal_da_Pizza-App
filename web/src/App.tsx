@@ -36,6 +36,7 @@ function App() {
 
   function addRequesttoCart(id: string) {
     const newItemArray: MenuProps[] = menu.filter((item) => item.id === id);
+    newItemArray[0].qty = 1;
     const newItem: MenuProps = newItemArray[0];
 
     let isItemInTheList: boolean = false;

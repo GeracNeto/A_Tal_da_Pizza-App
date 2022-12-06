@@ -15,6 +15,16 @@ export function Order({
   onDeleteRequestCart,
   onHandleAddQty,
 }: CartProps) {
+  const sum = cart.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.qty * currentValue.price,
+    0
+  );
+
+  const tax = 5;
+
+  const total = tax + sum;
+
   return (
     <OrderContainer>
       <header>
@@ -42,15 +52,15 @@ export function Order({
       <ResumeContainer>
         <div>
           <span>Items</span>
-          <span>R$ 56.99</span>
+          <span>R$ {sum.toFixed(2)}</span>
         </div>
         <div>
           <span>Taxa de entrega</span>
-          <span>R$ 2.45</span>
+          <span>R$ {tax.toFixed(2)}</span>
         </div>
         <div>
           <span>Total</span>
-          <Total>R$ 56.99</Total>
+          <Total>R$ {total.toFixed(2)}</Total>
         </div>
         <ButtonSubmit type="submit">Submit</ButtonSubmit>
       </ResumeContainer>
