@@ -8,7 +8,7 @@ import { Navigator } from "./components/Navigator";
 import { Menu } from "./components/Menu";
 import { Order } from "./components/Order";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 
 export interface MenuProps {
@@ -19,10 +19,15 @@ export interface MenuProps {
   qty: number;
 }
 
+export interface OrderProps {
+  code: string;
+}
+
 function App() {
   const [menu, setMenu] = useState<MenuProps[]>([]);
   const [menuDataError, setMenuDataError] = useState<string>("");
   const [cart, setCart] = useState<MenuProps[]>([]);
+  const [order, setOrder] = useState<OrderProps>();
 
   useEffect(() => {
     axios("http://localhost:3333/menu")
@@ -88,6 +93,20 @@ function App() {
     setCart(newCart);
   }
 
+  function handleSubmitOrder(event: FormEvent) {
+    event.preventDefault();
+    axios
+      .post("http://localhost:3333/order", {
+        cart,
+      })
+      .then((response) => {
+        setOrder(response.data);
+      })
+      .catch((error) => console.log(error));
+
+    setCart([]);
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <AppContainer>
@@ -102,6 +121,8 @@ function App() {
           cart={cart}
           onDeleteRequestCart={deleteRequestCart}
           onHandleAddQty={handleAddQty}
+          onHandleSubmitOrder={handleSubmitOrder}
+          order={order}
         />
       </AppContainer>
 
