@@ -1,6 +1,6 @@
 import { Nav } from "./styles";
 
-import { House } from "phosphor-react";
+import { House, CookingPot } from "phosphor-react";
 
 export function Navigator() {
   return (
@@ -8,6 +8,10 @@ export function Navigator() {
       <a href="#">
         <House size={32} weight="fill" color="#F97316" />
         Home
+      </a>
+      <a href="#">
+        <CookingPot size={32} weight="fill" color="#F97316" />
+        kitchen
       </a>
     </Nav>
   );

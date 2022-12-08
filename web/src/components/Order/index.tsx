@@ -1,5 +1,7 @@
 import { ResumeCard } from "./ResumeCard";
 
+import { Pizza } from "phosphor-react";
+
 import { ButtonSubmit, OrderContainer, ResumeContainer, Total } from "./styles";
 
 import { MenuProps, OrderProps } from "../../App";
@@ -36,24 +38,31 @@ export function Order({
         <span>Current Orders</span>
         {<h2># {order?.code}</h2>}
       </header>
-      <main>
-        {cart.length !== 0 ? (
-          cart.map((item) => (
-            <ResumeCard
-              key={item.id}
-              id={item.id}
-              foodName={item.foodName}
-              foodPicture={item.foodPicture}
-              price={item.price}
-              qty={item.qty}
-              onDeleteRequestCart={onDeleteRequestCart}
-              onHandleAddQty={onHandleAddQty}
-            />
-          ))
-        ) : (
-          <h1>No items on list</h1>
-        )}
-      </main>
+      {order && cart.length === 0 ? (
+        <h1>
+          Your order is being prepared...
+          <Pizza size={32} weight="duotone" color="#F97316" />
+        </h1>
+      ) : (
+        <main>
+          {cart.length !== 0 ? (
+            cart.map((item) => (
+              <ResumeCard
+                key={item.id}
+                id={item.id}
+                foodName={item.foodName}
+                foodPicture={item.foodPicture}
+                price={item.price}
+                qty={item.qty}
+                onDeleteRequestCart={onDeleteRequestCart}
+                onHandleAddQty={onHandleAddQty}
+              />
+            ))
+          ) : (
+            <h1>No items on list</h1>
+          )}
+        </main>
+      )}
       <ResumeContainer onSubmit={onHandleSubmitOrder}>
         <div>
           <span>Items</span>
