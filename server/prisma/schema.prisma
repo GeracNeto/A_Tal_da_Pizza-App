@@ -19,10 +19,11 @@ model Menu {
 }
 
 model Kitchen {
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
   foodName    String
   foodPicture String
   price       Float
-  qty   Int
-  order String
+  qty         Int
+  order       String
+  createdAt   DateTime @default(now())
 }

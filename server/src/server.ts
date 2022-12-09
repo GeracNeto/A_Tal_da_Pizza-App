@@ -39,6 +39,16 @@ app.get("/menu/:name", async (request, response) => {
   return response.json(menu);
 });
 
+app.get("/order", async (request, response) => {
+  const orders = await prisma.kitchen.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return response.json(orders);
+});
+
 app.post("/order", async (request, response) => {
   const { cart } = request.body;
 

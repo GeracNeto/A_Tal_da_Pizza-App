@@ -2,7 +2,7 @@ import { CardMenuContainer, HeaderContainer, MenuContainer } from "./styles";
 
 import { Card } from "./Card";
 
-import { MenuProps } from "../../App";
+import { MenuProps } from "../../pages/Home";
 
 interface FoodProps {
   menu: MenuProps[];

@@ -8,6 +8,7 @@ import { Navigator } from "./components/Navigator";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
+import { Kitchen } from "./pages/Kitchen";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/kitchen" element={<h1>kitchen</h1>} />
+            <Route path="/kitchen" element={<Kitchen />} />
           </Routes>
         </AppContainer>
         <GlobalStyle />

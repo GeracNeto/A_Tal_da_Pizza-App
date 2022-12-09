@@ -2,8 +2,6 @@ import { Nav, StyledNavLink } from "./styles";
 
 import { House, CookingPot } from "phosphor-react";
 
-import { NavLink } from "react-router-dom";
-
 export function Navigator() {
   return (
     <Nav>
