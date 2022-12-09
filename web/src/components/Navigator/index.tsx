@@ -1,18 +1,20 @@
-import { Nav } from "./styles";
+import { Nav, StyledNavLink } from "./styles";
 
 import { House, CookingPot } from "phosphor-react";
+
+import { NavLink } from "react-router-dom";
 
 export function Navigator() {
   return (
     <Nav>
-      <a href="#">
+      <StyledNavLink to="/">
         <House size={32} weight="fill" color="#F97316" />
         Home
-      </a>
-      <a href="#">
+      </StyledNavLink>
+      <StyledNavLink to="/kitchen">
         <CookingPot size={32} weight="fill" color="#F97316" />
         kitchen
-      </a>
+      </StyledNavLink>
     </Nav>
   );
 }

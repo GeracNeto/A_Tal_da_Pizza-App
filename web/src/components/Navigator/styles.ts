@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { NavLink } from "react-router-dom";
+
 export const Nav = styled.nav`
   width: 7.6rem;
   height: 100vh;
@@ -13,15 +15,21 @@ export const Nav = styled.nav`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+`;
 
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2rem;
+export const StyledNavLink = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
 
-    text-decoration: none;
+  border-radius: 10px;
 
-    color: ${(props) => props.theme.black};
+  text-decoration: none;
+
+  color: ${(props) => props.theme.black};
+
+  &.active {
+    background: ${(props) => props.theme["orange-50"]};
   }
 `;
