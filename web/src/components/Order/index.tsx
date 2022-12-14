@@ -1,10 +1,10 @@
 import { ResumeCard } from "./ResumeCard";
 
-import { Pizza } from "phosphor-react";
+import { Pizza, ShoppingCartSimple } from "phosphor-react";
 
 import { ButtonSubmit, OrderContainer, ResumeContainer, Total } from "./styles";
 
-import { MenuProps, OrderProps } from "../../App";
+import { MenuProps, OrderProps } from "../../pages/Home";
 import { FormEvent } from "react";
 
 interface CartProps {
@@ -59,7 +59,10 @@ export function Order({
               />
             ))
           ) : (
-            <h1>No items on list</h1>
+            <h1>
+              Add Pizza to your list...
+              <ShoppingCartSimple size={32} color="#F97316" weight="duotone" />
+            </h1>
           )}
         </main>
       )}

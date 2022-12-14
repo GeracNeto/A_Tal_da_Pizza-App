@@ -2,9 +2,6 @@ import { MoreAndMinus, ResumeCardContainer } from "./styles";
 
 import { Plus, Minus, X } from "phosphor-react";
 
-import { MenuProps } from "../../../App";
-import { useState } from "react";
-
 interface CartProps {
   id: string;
   foodName: string;

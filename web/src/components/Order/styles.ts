@@ -19,7 +19,7 @@ export const OrderContainer = styled.aside`
   }
 
   header span {
-    color: ${(props) => props.theme["gray-600"]};
+    color: ${(props) => props.theme.white};
   }
 
   main {
