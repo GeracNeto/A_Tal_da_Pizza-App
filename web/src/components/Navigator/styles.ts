@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   width: 7.6rem;
   height: 100vh;
 
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme["other-background"]};
   border-radius: 0px 0px 50px 0px;
 
   padding: 1.875rem 2.5rem;
@@ -27,9 +27,9 @@ export const StyledNavLink = styled(NavLink)`
 
   text-decoration: none;
 
-  color: ${(props) => props.theme.black};
+  color: ${(props) => props.theme.white};
 
   &.active {
-    background: ${(props) => props.theme["orange-50"]};
+    background: ${(props) => props.theme["select-background"]};
   }
 `;

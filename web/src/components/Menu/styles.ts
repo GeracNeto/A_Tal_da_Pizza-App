@@ -4,11 +4,11 @@ export const MenuContainer = styled.main`
   width: 100%;
   height: 100vh;
 
-  background: ${(props) => props.theme["gray-100"]};
+  background: ${(props) => props.theme["menu-background"]};
 `;
 
 export const HeaderContainer = styled.header`
-  background-color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme["other-background"]};
   border-radius: 0px 0px 20px 20px;
 
   height: fit-content;
@@ -24,7 +24,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    background: ${(props) => props.theme["gray-100"]};
+    background: ${(props) => props.theme["other-background"]};
     padding: 0 1.25rem;
     width: 23rem;
     border-radius: 20px;
@@ -33,6 +33,7 @@ export const HeaderContainer = styled.header`
   input {
     background: none;
     border: none;
+    color: ${(props) => props.theme.white};
 
     width: 100%;
 

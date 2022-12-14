@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const OrderContainer = styled.aside`
   width: 24.5rem;
   height: 100vh;
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme["other-background"]};
   border-radius: 0px 0px 0px 50px;
 
   padding: 1.5rem 1.25rem;
@@ -41,7 +41,7 @@ export const ResumeContainer = styled.form`
 `;
 
 export const Total = styled.span`
-  color: ${(props) => props.theme.black};
+  color: ${(props) => props.theme.white};
   font-weight: bolder;
 `;
 

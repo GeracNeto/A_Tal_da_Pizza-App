@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
 
   padding-bottom: 0.5rem;
 
-  background: ${(props) => props.theme.white};
+  background: ${(props) => props.theme["other-background"]};
   border-radius: 10px;
 
   cursor: pointer;

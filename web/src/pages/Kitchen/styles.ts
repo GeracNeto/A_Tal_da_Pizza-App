@@ -9,9 +9,10 @@ export const KitchenContainer = styled.div`
   justify-content: flex-start;
 
   font-size: 1.2rem;
+  color: ${(props) => props.theme.white};
 
   th {
-    background: ${(props) => props.theme.white};
+    background: ${(props) => props.theme["other-background"]};
   }
 
   table {
@@ -25,7 +26,7 @@ export const KitchenContainer = styled.div`
     padding: 0.6rem;
     text-align: center;
     width: 50%;
-    border-bottom: 1px solid ${(props) => props.theme["orange-50"]};
+    border-bottom: 1px solid ${(props) => props.theme["orange-500"]};
   }
 
   th {
@@ -33,7 +34,7 @@ export const KitchenContainer = styled.div`
   }
 
   tr:hover:nth-child(1n + 2) {
-    background-color: ${(props) => props.theme["orange-50"]};
+    background-color: ${(props) => props.theme["select-background"]};
     color: #fff;
   }
 `;

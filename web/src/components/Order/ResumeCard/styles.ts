@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ResumeCardContainer = styled.div`
-  background: ${(props) => props.theme["orange-50"]};
+  background: ${(props) => props.theme["select-background"]};
   padding: 0.875rem 0;
   border-radius: 10px;
 
