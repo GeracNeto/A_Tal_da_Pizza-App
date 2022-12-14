@@ -1,4 +1,9 @@
-import { CardMenuContainer, HeaderContainer, MenuContainer } from "./styles";
+import {
+  CardMenuContainer,
+  HeaderContainer,
+  LogoContainer,
+  MenuContainer,
+} from "./styles";
 
 import { Card } from "./Card";
 
@@ -27,7 +32,13 @@ export function Menu({
             placeholder="Search in menu..."
           />
         </form>
-        <span>5 items in cart</span>
+        <LogoContainer>
+          <h2>A TAL DA PIZZA</h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1404/1404945.png"
+            alt=""
+          />
+        </LogoContainer>
       </HeaderContainer>
       <CardMenuContainer>
         {menuDataError ? (
