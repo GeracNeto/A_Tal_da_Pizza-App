@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { KitchenContainer, TableContainer } from "./styles";
+import { KitchenContainer } from "./styles";
 
 interface KitchenProps {
   id: string;
@@ -26,6 +26,11 @@ export function Kitchen() {
   return (
     <KitchenContainer>
       <table>
+        <tr>
+          <th>Orders</th>
+          <th>Plate</th>
+          <th>Quantity</th>
+        </tr>
         {kitchenOrders?.map((item) => (
           <>
             <tr>
