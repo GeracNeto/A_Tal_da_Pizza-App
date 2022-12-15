@@ -32,6 +32,30 @@
 </div>
 <br>
 
+<hr>
+
+# Web
+
+<img src="Imagens-Projeto/gif.gif">
+
+## Menu
+
+<img src="Imagens-Projeto/Menu.jpeg">
+
+## Kitchen
+
+<img src="Imagens-Projeto/Kitchen.jpeg">
+
+# Banco de Dados - Prisma Studio
+
+## Menu-DB
+
+<img src="Imagens-Projeto/Menu-db.jpeg">
+
+## Kitchen-DB
+
+<img src="Imagens-Projeto/Kitchen-db.jpeg">
+
 ## Install
 Entre nas pastas e rode o comando abaixo para instalar as dependências dos projetos
 - /server
